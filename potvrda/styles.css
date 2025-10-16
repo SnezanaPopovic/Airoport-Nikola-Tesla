@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(247, 247, 241);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  color: rgb(208, 109, 42);
+  text-align: center;
+  margin-left: 220px;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+header {
+  background-color: #30313e;
+  height: 100px;
+  color: #f7f7f7;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.linija {
+  background-color: antiquewhite;
+  min-height: 70px;
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-height: 230px;
+  width: 100%;
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 50px;
+}
+
+.logo img {
+  max-width: 500px;
+  height: 200px;
+}
+
+h4 {
+  font-weight: 100;
+  margin: 10px 20px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.container2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  padding-right: 0;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a i {
+  font-size: 20px;
+  color: #3b3f46;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+  background-color: #ddd;
+}
+
+.flags {
+  display: flex;
+  gap: 5px;
+}
+
+.flags img {
+  width: 40px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.flags img:hover {
+  transform: scale(1.1);
+}
+
+.success-container {
+  text-align: center;
+  margin-top: 120px;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.icon {
+  display: inline-block;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.icon svg {
+  background-color: #4a5568;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.linijaa {
+  background-color: rgb(212, 206, 197);
+  width: 100%;
+  height: 24px;
+  text-align: center;
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE - TABLET */
+@media (max-width: 992px) {
+  .logo {
+    display: none;
+  }
+  h1 {
+    margin-left: 0;
+    width: 100%;
+  }
+  header {
+    height: auto;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+  }
+  .container2 {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* RESPONSIVE - MOBILNI */
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+  header {
+    height: auto;
+    padding: 15px;
+  }
+  h4 {
+    margin: 8px 12px;
+    font-size: 0.95rem;
+  }
+  .success-container {
+    margin-top: 80px;
+  }
+  .linijaa {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+}
+
+/* RESPONSIVE - MALI MOBILNI */
+@media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
+  header {
+    height: auto;
+    padding: 12px;
+  }
+  h4 {
+    margin: 5px 8px;
+    font-size: 0.85rem;
+  }
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+  }
+  .social-icons a i {
+    font-size: 16px;
+  }
+  .flags img {
+    width: 32px;
+  }
+  .success-container {
+    margin-top: 40px;
+    padding: 15px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .linijaa {
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+}
