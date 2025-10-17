@@ -144,7 +144,6 @@ h4 {
   transform: scale(1.1);
 }
 
-/* ISTORIJA I IME SEKCIJA */
 .part {
   display: flex;
   justify-content: center;
@@ -187,7 +186,6 @@ h4 {
   display: block;
 }
 
-/* STRANA 2 - PROFIL */
 .strana2 {
   padding: 60px 20px;
   max-width: 1400px;
@@ -256,7 +254,6 @@ h4 {
   margin-top: auto;
 }
 
-/* RESPONSIVE - TABLET */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -289,7 +286,6 @@ h4 {
   }
 }
 
-/* RESPONSIVE - MOBILNI */
 @media (max-width: 768px) {
   .logo {
     display: none;
@@ -339,7 +335,6 @@ h4 {
   }
 }
 
-/* RESPONSIVE - MALI MOBILNI */
 @media (max-width: 480px) {
   .logo {
     display: none;

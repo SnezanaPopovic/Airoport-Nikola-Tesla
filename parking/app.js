@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentLang = localStorage.getItem("siteLanguage") || "sr";
 
-    // 💬 Poruke o greškama na dva jezika
+    //Poruke o greškama na dva jezika
     const messages = {
       sr: {
         vremeUlazaPrazno: "Unesite vreme ulaza!",
@@ -48,12 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
       promoKod: document.getElementById("promo-kod-error"),
     };
 
-    // Reset poruka
+    //Reset poruka
     Object.values(errors).forEach((err) => (err.textContent = ""));
 
     let isValid = true;
 
-    // ✅ Validacija vremena ulaza
+    //Validacija vremena ulaza
     if (vremeUlaza.value.trim() === "") {
       errors.vremeUlaza.textContent = messages[currentLang].vremeUlazaPrazno;
       isValid = false;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
-    // ✅ Validacija vremena izlaza
+    //Validacija vremena izlaza
     if (vremeIzlaza.value.trim() === "") {
       errors.vremeIzlaza.textContent = messages[currentLang].vremeIzlazaPrazno;
       isValid = false;
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
-    // ✅ Validacija broja ulaza
+    //Validacija broja ulaza
     if (brojUlaza.value.trim() === "") {
       errors.brojUlaza.textContent = messages[currentLang].brojUlazaPrazno;
       isValid = false;
@@ -89,20 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
-    // ✅ Promo kod – opciono
+    //Promo kod
     if (promoKod.value.trim() && promoKod.value.trim().length < 3) {
       errors.promoKod.textContent = messages[currentLang].promoKodKratak;
       isValid = false;
     }
 
-    // ✅ Ako je sve ispravno
+    //Ako je sve ispravno
     if (isValid) {
       alert(messages[currentLang].uspeh);
       form.reset();
     }
   });
 
-  // 🚫 Dozvoljava samo brojeve za vreme i broj ulaza
+  // Dozvoljava samo brojeve za vreme i broj ulaza
   ["vreme-ulaza", "vreme-izlaza", "broj-ulaza"].forEach((id) => {
     const input = document.getElementById(id);
     input.addEventListener("input", () => {

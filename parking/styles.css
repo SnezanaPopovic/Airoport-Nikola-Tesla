@@ -142,33 +142,25 @@ h4 {
 .blok {
   width: 800px;
   max-width: 95%;
-  background-color: #30313e;
-  opacity: 95%;
-  color: white;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
   text-align: center;
-  padding: 20px;
+  padding: 25px 30px;
   border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .naslov {
-  color: white;
-  padding-top: 20px;
+  color: #333;
+  padding-top: 10px;
   font-size: xx-large;
 }
 
 hr {
   width: 90%;
   max-width: 700px;
-  margin: 30px auto;
-}
-
-.linijaa {
-  background-color: rgb(212, 206, 197);
-  width: 100%;
-  height: 24px;
-  text-align: center;
-  padding-top: 3px;
-  margin-top: auto;
+  margin: 25px auto;
+  border: 1px solid #ccc;
 }
 
 .container {
@@ -199,17 +191,20 @@ hr {
 }
 
 label {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #333;
 }
 
 input {
-  padding: 10px;
-  font-size: 0.9rem;
-  border: none;
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 3px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f0e9dc;
+  font-size: 12px;
+  background-color: white;
   color: #333;
 }
 
@@ -218,33 +213,40 @@ input::placeholder {
 }
 
 .error-message {
-  color: #ff4444;
-  font-size: 0.75rem;
+  color: red;
+  font-size: 0.7rem;
   margin-top: 3px;
   display: block;
-  min-height: 15px;
+  min-height: 12px;
   text-align: left;
 }
 
 .btn {
-  width: 300px;
-  max-width: 100%;
-  margin: 15px auto 0;
-  padding: 10px;
-  font-size: 1rem;
-  color: #333;
-  background-color: #f0e9dc;
+  width: 150px;
+  margin: 10px auto;
+  background-color: #d2caca;
+  color: black;
+  padding: 8px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #e0d6c5;
+  background-color: #888;
 }
 
-/* RESPONSIVE - TABLET */
+.linijaa {
+  background-color: rgb(212, 206, 197);
+  width: 100%;
+  height: 24px;
+  text-align: center;
+  padding-top: 3px;
+  margin-top: auto;
+}
+
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -268,7 +270,6 @@ input::placeholder {
   }
 }
 
-/* RESPONSIVE - MOBILNI */
 @media (max-width: 768px) {
   .logo {
     display: none;
@@ -302,7 +303,6 @@ input::placeholder {
   }
 }
 
-/* RESPONSIVE - MALI MOBILNI */
 @media (max-width: 480px) {
   .logo {
     display: none;

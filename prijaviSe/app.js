@@ -8,7 +8,7 @@ if (togglePassword) {
       passwordInput.getAttribute("type") === "password" ? "text" : "password";
     passwordInput.setAttribute("type", type);
 
-    // Menja ikonu između oka i precratanog oka
+    // Menja ikonu između oka i precrtanog oka
     this.classList.toggle("fa-eye");
     this.classList.toggle("fa-eye-slash");
   });
@@ -89,6 +89,11 @@ if (loginBtn) {
     // ✅ AKO JE SVE U REDU
     if (!hasError) {
       alert(errors.uspeh);
+
+      // 💾 Čuvanje podataka u localStorage
+      localStorage.setItem("userEmail", emailInput.value.trim());
+      localStorage.setItem("userPassword", passwordInput.value.trim());
+      localStorage.setItem("isLoggedIn", "true");
 
       // 🔄 Resetuje celu formu
       loginForm.reset();

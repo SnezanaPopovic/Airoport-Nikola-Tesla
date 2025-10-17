@@ -5,10 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     rezervisiBtn.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Trenutni jezik (sr ili en)
       const currentLang = localStorage.getItem("siteLanguage") || "sr";
 
-      // Poruke
       const messages = {
         sr: {
           fromEmpty: "Unesite polazište!",
@@ -30,33 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       };
 
-      // Uzimanje vrednosti
       const from = document.getElementById("from");
       const to = document.getElementById("to");
       const departure = document.getElementById("departure");
       const adults = document.getElementById("adults");
       const children = document.getElementById("children");
 
-      // Ukloni stare poruke
       document.querySelectorAll(".error-message").forEach((el) => el.remove());
 
       let isValid = true;
 
-      // Funkcija za prikaz greške (poziciono ispod inputa)
       function prikaziGresku(input, poruka) {
         const span = document.createElement("span");
         span.classList.add("error-message");
         span.textContent = poruka;
-
-        // Stil da ne menja layout
         span.style.position = "absolute";
         span.style.bottom = "-16px";
         span.style.left = "5px";
         span.style.color = "#ff4444";
         span.style.fontSize = "0.75rem";
         span.style.pointerEvents = "none";
-
-        // Roditelju dodaj relativni položaj
         const parent = input.closest(".form-group");
         parent.style.position = "relative";
         parent.appendChild(span);
@@ -91,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isValid = false;
       }
 
-      // ✅ Ako su svi podaci ispravni
+      // Ako su svi podaci ispravni
       if (isValid) {
         const formData = {
           from: from.value.trim(),
@@ -102,10 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         localStorage.setItem("rezervacija", JSON.stringify(formData));
+        localStorage.setItem("rezervacijaSubmitted", "true");
 
         alert(messages[currentLang].success);
 
-        // Resetuj formu
+        //Reset forme
         from.value = "";
         to.value = "";
         departure.value = "";

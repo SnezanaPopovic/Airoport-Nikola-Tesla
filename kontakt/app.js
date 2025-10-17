@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
-
-  if (!form) return; // Ako forma ne postoji, izađi
+  if (!form) return;
 
   const btnSubmit = document.getElementById("posalji");
 
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let hasError = false;
 
-    // --- VALIDACIJA IMENA ---
+    // ✅ Validacija imena
     if (imeInput.value.trim() === "") {
       imeError.textContent = msg.imeObavezno;
       hasError = true;
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // --- VALIDACIJA PREZIMENA ---
+    // ✅ Validacija prezimena
     if (prezimeInput.value.trim() === "") {
       prezimeError.textContent = msg.prezimeObavezno;
       hasError = true;
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // --- VALIDACIJA EMAILA ---
+    // ✅ Validacija emaila
     if (emailInput.value.trim() === "") {
       emailError.textContent = msg.emailObavezan;
       hasError = true;
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // --- VALIDACIJA PORUKE ---
+    // ✅ Validacija poruke
     if (porukaInput.value.trim() === "") {
       porukaError.textContent = msg.porukaObavezna;
       hasError = true;
@@ -93,8 +92,19 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // --- AKO NEMA GREŠAKA ---
+    // ✅ Ako nema grešaka
     if (!hasError) {
+      // 💾 Sačuvaj podatke u localStorage
+      const contactData = {
+        ime: imeInput.value.trim(),
+        prezime: prezimeInput.value.trim(),
+        email: emailInput.value.trim(),
+        poruka: porukaInput.value.trim(),
+      };
+      localStorage.setItem("contactData", JSON.stringify(contactData));
+      localStorage.setItem("contactSubmitted", "true");
+
+      // 🔄 Redirekcija na stranicu potvrde
       window.location.href = "../potvrda/index.html";
     }
   });

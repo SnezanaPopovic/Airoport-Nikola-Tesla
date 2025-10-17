@@ -384,7 +384,7 @@ table th {
   margin-top: auto;
 }
 .form-group {
-  position: relative; /* omogućava pozicioniranje grešaka unutar grupe */
+  position: relative;
 }
 
 .error-message {
@@ -396,7 +396,6 @@ table th {
   pointer-events: none;
 }
 
-/* RESPONSIVE - TABLET (992px i manji) */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -429,7 +428,6 @@ table th {
   }
 }
 
-/* RESPONSIVE - MOBILNI (768px i manji) */
 @media (max-width: 768px) {
   .logo {
     display: none;
@@ -468,7 +466,6 @@ table th {
     padding: 8px 6px;
   }
 
-  /* Sakrij kolonu "Let" na mobilnom */
   table th:nth-child(2),
   table td:nth-child(2) {
     display: none;
@@ -480,7 +477,6 @@ table th {
   }
 }
 
-/* RESPONSIVE - MALI MOBILNI (480px i manji) */
 @media (max-width: 480px) {
   .logo {
     display: none;
@@ -532,7 +528,6 @@ table th {
     padding: 6px 4px;
   }
 
-  /* Sakrij kolone "Let" i "Status" na malom mobilnom */
   table th:nth-child(2),
   table td:nth-child(2),
   table th:nth-child(4),
@@ -561,7 +556,6 @@ table th {
   }
 }
 
-/* RESPONSIVE - EKSTRA MALI (360px i manji) */
 @media (max-width: 360px) {
   h4 {
     font-size: 0.75rem;

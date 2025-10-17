@@ -330,7 +330,6 @@ tbody tr:hover {
   background-color: #333;
 }
 
-/* RESPONSIVE - TABLET */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -353,14 +352,12 @@ tbody tr:hover {
     width: 95%;
     padding: 18px;
   }
-  /* Sakrij kolonu Let */
   thead th:nth-child(3),
   tbody td:nth-child(3) {
     display: none;
   }
 }
 
-/* RESPONSIVE - MOBILNI */
 @media (max-width: 768px) {
   .logo {
     display: none;
@@ -387,7 +384,6 @@ tbody tr:hover {
   tbody td {
     padding: 8px 6px;
   }
-  /* Sakrij kolone Let i Status */
   thead th:nth-child(3),
   tbody td:nth-child(3),
   thead th:nth-child(4),
@@ -412,7 +408,6 @@ tbody tr:hover {
   }
 }
 
-/* RESPONSIVE - MALI MOBILNI */
 @media (max-width: 480px) {
   .logo {
     display: none;
@@ -449,7 +444,6 @@ tbody tr:hover {
   tbody td {
     padding: 6px 4px;
   }
-  /* Sakrij kolone Let i Status */
   thead th:nth-child(3),
   tbody td:nth-child(3),
   thead th:nth-child(4),

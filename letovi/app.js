@@ -14,7 +14,7 @@ scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-//LocalStorage za formu (samo ako postoji)
+//LocalStorage za formu
 const form = document.querySelector("form");
 
 if (form) {

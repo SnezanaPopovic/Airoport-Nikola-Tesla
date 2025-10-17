@@ -178,7 +178,7 @@ textarea {
 
 textarea {
   resize: none;
-  height: 50px;
+  height: 50px2;
 }
 
 .error-message {
@@ -223,7 +223,6 @@ footer {
   padding-top: 3px;
 }
 
-/* RESPONSIVE - TABLET */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -258,7 +257,6 @@ footer {
   }
 }
 
-/* RESPONSIVE - MOBILNI */
 @media (max-width: 768px) {
   .logo {
     display: none;
@@ -291,7 +289,6 @@ footer {
   }
 }
 
-/* RESPONSIVE - MALI MOBILNI */
 @media (max-width: 480px) {
   .logo {
     display: none;
