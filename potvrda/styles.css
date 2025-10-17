@@ -28,7 +28,6 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  flex-shrink: 0;
 }
 
 .linija {
@@ -41,7 +40,6 @@ header {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  flex-shrink: 0;
 }
 
 .header {
@@ -87,7 +85,6 @@ h4 {
 .social-icons {
   display: flex;
   gap: 15px;
-  padding-right: 0;
 }
 
 .social-icons a {
@@ -179,10 +176,9 @@ p {
   height: 24px;
   text-align: center;
   padding-top: 3px;
-  flex-shrink: 0;
 }
 
-/* RESPONSIVE STYLING */
+/* RESPONSIVE STYLING - TAČNO KAO PRVI KOD */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -209,6 +205,7 @@ p {
 
 @media (max-width: 768px) {
   header {
+    height: auto;
     padding: 15px;
   }
   h4 {
@@ -216,8 +213,30 @@ p {
     font-size: 0.95rem;
   }
   .success-container {
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 15px;
+  }
+  input,
+  .social-icons a {
+    width: auto;
+  }
+  .flags img {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    height: auto;
+    padding: 12px;
+  }
+  h4 {
+    margin: 5px 8px;
+    font-size: 0.85rem;
+  }
+  .success-container {
+    margin-top: 20px;
+    padding: 12px;
   }
   .social-icons a {
     width: 32px;
@@ -228,20 +247,6 @@ p {
   }
   .flags img {
     width: 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 12px;
-  }
-  h4 {
-    margin: 5px 8px;
-    font-size: 0.85rem;
-  }
-  .success-container {
-    margin-top: 40px;
-    padding: 12px;
   }
   .linijaa {
     font-size: 0.7rem;
