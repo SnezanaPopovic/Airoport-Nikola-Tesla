@@ -178,7 +178,6 @@ p {
   padding-top: 3px;
 }
 
-/* RESPONSIVE STYLING - TAČNO KAO PRVI KOD */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -204,6 +203,9 @@ p {
 }
 
 @media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
   header {
     height: auto;
     padding: 15px;
@@ -226,6 +228,9 @@ p {
 }
 
 @media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
   header {
     height: auto;
     padding: 12px;
@@ -233,10 +238,6 @@ p {
   h4 {
     margin: 5px 8px;
     font-size: 0.85rem;
-  }
-  .success-container {
-    margin-top: 20px;
-    padding: 12px;
   }
   .social-icons a {
     width: 32px;

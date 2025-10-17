@@ -48,7 +48,7 @@ if (form) {
       alert("Molimo popunite sva polja!");
       return;
     }
-
+    //proveru da li je string validna email adresa
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Unesite validan e-mail!");

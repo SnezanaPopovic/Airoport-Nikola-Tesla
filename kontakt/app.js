@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let hasError = false;
 
-    // ✅ Validacija imena
+    //Validacija imena
     if (imeInput.value.trim() === "") {
       imeError.textContent = msg.imeObavezno;
       hasError = true;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // ✅ Validacija prezimena
+    //Validacija prezimena
     if (prezimeInput.value.trim() === "") {
       prezimeError.textContent = msg.prezimeObavezno;
       hasError = true;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // ✅ Validacija emaila
+    //Validacija emaila
     if (emailInput.value.trim() === "") {
       emailError.textContent = msg.emailObavezan;
       hasError = true;
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // ✅ Validacija poruke
+    //Validacija poruke
     if (porukaInput.value.trim() === "") {
       porukaError.textContent = msg.porukaObavezna;
       hasError = true;
@@ -92,9 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hasError = true;
     }
 
-    // ✅ Ako nema grešaka
     if (!hasError) {
-      // 💾 Sačuvaj podatke u localStorage
       const contactData = {
         ime: imeInput.value.trim(),
         prezime: prezimeInput.value.trim(),
@@ -103,8 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
       };
       localStorage.setItem("contactData", JSON.stringify(contactData));
       localStorage.setItem("contactSubmitted", "true");
-
-      // 🔄 Redirekcija na stranicu potvrde
       window.location.href = "../potvrda/index.html";
     }
   });

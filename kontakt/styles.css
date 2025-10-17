@@ -6,7 +6,7 @@
 body {
   overflow-x: hidden;
   background-size: cover;
-  background-image: url("pozadina1.jpg");
+  background-image: url("../assets/pozadina1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

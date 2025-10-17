@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentLang = localStorage.getItem("siteLanguage") || "sr";
 
-    //Poruke o greškama na dva jezika
     const messages = {
       sr: {
         vremeUlazaPrazno: "Unesite vreme ulaza!",
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const brojUlaza = document.getElementById("broj-ulaza");
     const promoKod = document.getElementById("promo-kod");
 
-    // Uzimanje elemenata za poruke o greškama
     const errors = {
       vremeUlaza: document.getElementById("vreme-ulaza-error"),
       vremeIzlaza: document.getElementById("vreme-izlaza-error"),
@@ -89,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
-    //Promo kod
     if (promoKod.value.trim() && promoKod.value.trim().length < 3) {
       errors.promoKod.textContent = messages[currentLang].promoKodKratak;
       isValid = false;

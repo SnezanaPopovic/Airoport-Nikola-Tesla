@@ -6,7 +6,7 @@
 
 body {
   background-size: cover;
-  background-image: url("pozadina1.avif");
+  background-image: url("../assets/pozadina1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
@@ -207,7 +207,7 @@ h4 {
   height: 100%;
   border-radius: 10px;
   background-size: cover;
-  background-image: url("slika.jpg");
+  background-image: url("../assets/slika.jpg");
   background-repeat: no-repeat;
   background-position: center;
 }

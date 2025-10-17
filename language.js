@@ -1,18 +1,13 @@
-// language.js - Zajednički kod za sve stranice
-
-// === LANGUAGE SWITCHER ===
 document.addEventListener("DOMContentLoaded", function () {
   const flagSr = document.getElementById("flag-sr");
   const flagEn = document.getElementById("flag-en");
 
   if (flagSr && flagEn) {
-    // Učitaj sačuvan jezik ili postavi srpski kao default
     let currentLang = localStorage.getItem("siteLanguage") || "sr";
 
     // Funkcija za promenu jezika
     function switchLanguage(lang) {
       currentLang = lang;
-      // Čuvaj jezik u localStorage
       localStorage.setItem("siteLanguage", lang);
       document.documentElement.setAttribute("lang", lang);
 
@@ -20,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
       applyLanguage(lang);
     }
 
-    // Funkcija koja primenjuje jezik na elemente
     function applyLanguage(lang) {
       // Promeni sve elemente sa data-lang atributima
       document.querySelectorAll("[data-lang-sr]").forEach((element) => {
@@ -31,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Promeni placeholder-e za inpute (ako postoje)
       document.querySelectorAll("[data-placeholder-sr]").forEach((element) => {
         if (lang === "sr") {
           element.placeholder = element.getAttribute("data-placeholder-sr");
@@ -40,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Opciono: Promeni title stranice ako ima data-lang atribute
+      // Promeni title stranice ako ima data-lang atribute
       const titleElement = document.querySelector("title");
       if (titleElement && titleElement.getAttribute("data-lang-sr")) {
         if (lang === "sr") {
@@ -60,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
       switchLanguage("en");
     });
 
-    // VAŽNO: Primeni sačuvani jezik čim se stranica učita
     applyLanguage(currentLang);
   }
 });

@@ -68,7 +68,7 @@ if (loginBtn) {
 
     let hasError = false;
 
-    // ✅ VALIDACIJA EMAILA
+    //VALIDACIJA EMAILA
     if (emailInput.value.trim() === "") {
       emailError.textContent = errors.emailObavezan;
       hasError = true;
@@ -77,7 +77,7 @@ if (loginBtn) {
       hasError = true;
     }
 
-    // ✅ VALIDACIJA LOZINKE
+    //VALIDACIJA LOZINKE
     if (passwordInput.value.trim() === "") {
       passwordError.textContent = errors.lozinkaObavezna;
       hasError = true;
@@ -86,23 +86,20 @@ if (loginBtn) {
       hasError = true;
     }
 
-    // ✅ AKO JE SVE U REDU
     if (!hasError) {
       alert(errors.uspeh);
 
-      // 💾 Čuvanje podataka u localStorage
+      //Cuvanje podataka u localStorage
       localStorage.setItem("userEmail", emailInput.value.trim());
       localStorage.setItem("userPassword", passwordInput.value.trim());
       localStorage.setItem("isLoggedIn", "true");
 
-      // 🔄 Resetuje celu formu
+      // Resetuje celu formu
       loginForm.reset();
 
-      // 🔧 Briše poruke o grešci
       emailError.textContent = "";
       passwordError.textContent = "";
 
-      // 🔧 Vraća password input na type="password" i ikonu na začepen oko
       passwordInput.setAttribute("type", "password");
       if (togglePassword) {
         togglePassword.classList.remove("fa-eye");
