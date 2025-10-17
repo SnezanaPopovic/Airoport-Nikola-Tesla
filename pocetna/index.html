@@ -14,22 +14,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <style>
-      /* SAMO DODATAK ZA DATE INPUT */
-      #departure {
-        position: relative;
-        z-index: 2; /* da bude iznad blur pozadine */
-        background-color: #fff;
-        cursor: pointer;
-      }
-
-      @media (max-width: 480px) {
-        #departure {
-          font-size: 0.95rem;
-          padding: 8px;
-        }
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -71,6 +55,7 @@
         </div>
       </div>
     </header>
+
     <header1>
       <div class="linija">
         <h4>
@@ -145,7 +130,22 @@
                 Očekivan 11:00
               </td>
             </tr>
-            <!-- Ostatak redova -->
+            <tr>
+              <td>11:40</td>
+              <td>B7</td>
+              <td data-lang-sr="Moskva" data-lang-en="Moscow">Moskva</td>
+              <td data-lang-sr="Očekivan 11:40" data-lang-en="Expected 11:40">
+                Očekivan 11:40
+              </td>
+            </tr>
+            <tr>
+              <td>12:00</td>
+              <td>A3</td>
+              <td data-lang-sr="Dubai" data-lang-en="Dubai">Dubai</td>
+              <td data-lang-sr="Očekivan 12:00" data-lang-en="Expected 12:00">
+                Očekivan 12:00
+              </td>
+            </tr>
           </tbody>
         </table>
         <div class="more">
@@ -158,6 +158,7 @@
           >
         </div>
       </div>
+
       <div class="card">
         <div class="tabs"></div>
         <h2 data-lang-sr="Avionske karte" data-lang-en="Flight Tickets">
