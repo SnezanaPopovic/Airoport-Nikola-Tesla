@@ -73,6 +73,7 @@ h4 {
 .social-icons {
   display: flex;
   gap: 15px;
+  padding-right: 0;
 }
 
 .social-icons a {
@@ -273,10 +274,11 @@ input::placeholder {
     font-size: 0.95rem;
   }
   main {
-    padding: 20px;
+    padding: 30px 20px;
   }
   .login-container {
     width: 90%;
+    max-width: 530px;
     padding: 20px;
   }
   input {
@@ -284,6 +286,8 @@ input::placeholder {
   }
   .btn {
     width: 110px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .linijaa {
     font-size: 0.8rem;
@@ -313,11 +317,15 @@ input::placeholder {
   .flags img {
     width: 32px;
   }
+  main {
+    padding: 20px 15px;
+  }
   .login-container {
     width: 95%;
-    padding: 15px;
+    padding: 12px;
   }
   input {
+    width: 100%;
     padding: 6px;
     font-size: 11px;
   }
@@ -326,6 +334,7 @@ input::placeholder {
   }
   .btn {
     width: 100%;
+    margin-left: 0;
     padding: 9px;
   }
   .linijaa {
