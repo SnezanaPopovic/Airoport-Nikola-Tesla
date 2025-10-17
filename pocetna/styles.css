@@ -232,6 +232,7 @@ table th {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: #333;
 }
 
 .form-group input[type="date"] {
@@ -241,6 +242,8 @@ table th {
   min-height: 40px;
   position: relative;
   cursor: pointer;
+  color: #333;
+  background-color: white;
 }
 
 .form-group input[type="date"]::-webkit-inner-spin-button,
@@ -251,6 +254,7 @@ table th {
   right: 10px;
   width: 20px;
   height: 20px;
+  background: transparent;
 }
 
 .form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper {
@@ -259,18 +263,27 @@ table th {
 
 .form-group input[type="date"]::-webkit-datetime-edit-text {
   padding: 0 0.3em;
+  color: #333;
 }
 
 .form-group input[type="date"]::-webkit-datetime-edit-month-field,
 .form-group input[type="date"]::-webkit-datetime-edit-day-field,
 .form-group input[type="date"]::-webkit-datetime-edit-year-field {
   padding: 0 0.2em;
+  color: #333;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: rgb(208, 109, 42);
   box-shadow: 0 0 0 2px rgba(208, 109, 42, 0.1);
+  background-color: white;
+}
+
+.form-group input:disabled,
+.form-group input:read-only {
+  background-color: white;
+  opacity: 1;
 }
 
 .button {
@@ -400,6 +413,7 @@ table th {
   .form-group input {
     padding: 10px;
     font-size: 0.95rem;
+    background-color: white;
   }
 
   .form-group input[type="date"] {
@@ -407,12 +421,19 @@ table th {
     padding: 11px 10px;
     font-size: 16px;
     cursor: pointer;
+    background-color: white;
+    color: #333;
   }
 
   .form-group input[type="date"]::-webkit-calendar-picker-indicator {
     width: 24px;
     height: 24px;
     opacity: 1;
+  }
+
+  .form-group input:focus,
+  .form-group input[type="date"]:focus {
+    background-color: white;
   }
 
   .linijaa {
@@ -487,11 +508,9 @@ table th {
     padding: 6px 4px;
   }
 
-  /* Sakrivanje 2. i 4. kolone na mobilnim uređajima */
+  /* Sakrivanje 2. kolone (Let) na mobilnim uređajima */
   table th:nth-child(2),
-  table td:nth-child(2),
-  table th:nth-child(4),
-  table td:nth-child(4) {
+  table td:nth-child(2) {
     display: none;
   }
 
@@ -609,12 +628,14 @@ table th {
   }
 
   .form-group label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
   }
 
   .form-group input {
-    padding: 9px;
-    font-size: 0.85rem;
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
   }
 
   .form-group input[type="date"] {
@@ -622,6 +643,8 @@ table th {
     min-height: 48px;
     font-size: 16px;
     cursor: pointer;
+    background-color: white;
+    color: #333;
   }
 
   .form-group input[type="date"]::-webkit-calendar-picker-indicator {
@@ -632,6 +655,11 @@ table th {
   .form-group input[type="number"],
   .form-group input[type="text"] {
     font-size: 16px;
+  }
+
+  .form-group input:focus,
+  .form-group input[type="date"]:focus {
+    background-color: white;
   }
 
   .button button {
