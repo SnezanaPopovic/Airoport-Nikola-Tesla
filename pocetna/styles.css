@@ -432,17 +432,14 @@ table th {
   .logo {
     display: none;
   }
-
   header {
     height: auto;
     padding: 15px;
   }
-
   h4 {
     margin: 8px 12px;
     font-size: 0.95rem;
   }
-
   .container {
     padding: 20px 10px;
     gap: 20px;
@@ -556,10 +553,27 @@ table th {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
+  header {
+    height: auto;
+    padding: 12px;
+  }
   h4 {
-    font-size: 0.75rem;
-    margin: 5px 6px;
+    margin: 5px 8px;
+    font-size: 0.85rem;
+  }
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+  }
+  .social-icons a i {
+    font-size: 16px;
+  }
+  .flags img {
+    width: 32px;
   }
 
   .social-icons {
