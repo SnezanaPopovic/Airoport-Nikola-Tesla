@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   overflow-x: hidden;
   min-height: 100vh;
@@ -249,10 +250,15 @@ h4 {
   cursor: pointer;
   flex: 1;
   min-width: 100px;
+  transition: background-color 0.3s ease;
 }
 
 .tabs button.active {
   background-color: #222;
+}
+
+.tabs button:hover {
+  background-color: #555;
 }
 
 table {
@@ -291,7 +297,8 @@ table th {
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .form-group label {
@@ -313,6 +320,16 @@ table th {
 .form-group input:focus {
   outline: none;
   border-color: rgb(208, 109, 42);
+}
+
+.error-message {
+  position: absolute;
+  bottom: -18px;
+  left: 5px;
+  color: #ff4444;
+  font-size: 0.75rem;
+  pointer-events: none;
+  min-height: 14px;
 }
 
 .button {
@@ -337,6 +354,10 @@ table th {
 .button button:hover {
   background-color: rgb(188, 89, 32);
   transform: translateY(-2px);
+}
+
+.button button:active {
+  transform: translateY(0);
 }
 
 .menu-item {
@@ -383,19 +404,8 @@ table th {
   line-height: 1.4;
   margin-top: auto;
 }
-.form-group {
-  position: relative;
-}
 
-.error-message {
-  position: absolute;
-  bottom: -16px;
-  left: 5px;
-  color: #ff4444;
-  font-size: 0.75rem;
-  pointer-events: none;
-}
-
+/* Media Queries */
 @media (max-width: 992px) {
   .logo {
     display: none;
@@ -404,6 +414,7 @@ table th {
   h1 {
     margin-left: 0;
     width: 100%;
+    text-align: center;
   }
 
   header {
@@ -426,6 +437,12 @@ table th {
   .card {
     max-width: 500px;
   }
+
+  .header {
+    flex-direction: column;
+    min-height: auto;
+    padding: 15px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -436,6 +453,11 @@ table th {
   header {
     height: auto;
     padding: 15px;
+  }
+
+  h1 {
+    margin-left: 0;
+    font-size: 1.5rem;
   }
 
   h4 {
@@ -457,6 +479,12 @@ table th {
     font-size: 1.3rem;
   }
 
+  .tabs button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    min-width: 90px;
+  }
+
   table {
     font-size: 0.85rem;
   }
@@ -466,14 +494,20 @@ table th {
     padding: 8px 6px;
   }
 
-  table th:nth-child(2),
-  table td:nth-child(2) {
-    display: none;
-  }
-
   .linijaa {
     font-size: 0.75rem;
     padding: 8px;
+    min-height: 35px;
+  }
+
+  .details {
+    max-width: 100%;
+  }
+
+  .info,
+  .info1 {
+    max-width: 100%;
+    margin: 20px auto;
   }
 }
 
@@ -487,9 +521,18 @@ table th {
     padding: 12px;
   }
 
+  h1 {
+    margin-left: 0;
+    font-size: 1.2rem;
+  }
+
   h4 {
     margin: 5px 8px;
     font-size: 0.85rem;
+  }
+
+  .social-icons {
+    gap: 10px;
   }
 
   .social-icons a {
@@ -519,6 +562,16 @@ table th {
     margin-bottom: 15px;
   }
 
+  .tabs {
+    gap: 8px;
+  }
+
+  .tabs button {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
   table {
     font-size: 0.8rem;
   }
@@ -528,11 +581,16 @@ table th {
     padding: 6px 4px;
   }
 
+  /* Sakrivanje kolona na malim ekranima */
   table th:nth-child(2),
   table td:nth-child(2),
   table th:nth-child(4),
   table td:nth-child(4) {
     display: none;
+  }
+
+  .form-group {
+    margin-bottom: 22px;
   }
 
   .form-group input {
@@ -551,23 +609,64 @@ table th {
   }
 
   .linijaa {
-    padding: 6px 5px;
+    padding: 8px 5px;
     font-size: 0.7rem;
+    min-height: 32px;
+  }
+
+  .more a {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 360px) {
+  header {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+
   h4 {
     font-size: 0.75rem;
     margin: 5px 6px;
   }
 
   .social-icons {
-    gap: 10px;
+    gap: 8px;
+  }
+
+  .social-icons a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-icons a i {
+    font-size: 14px;
+  }
+
+  .flags img {
+    width: 28px;
+  }
+
+  .container {
+    padding: 12px 6px;
+    gap: 12px;
   }
 
   .card {
     padding: 12px;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .tabs button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    min-width: 70px;
   }
 
   table {
@@ -577,5 +676,25 @@ table th {
   table th,
   table td {
     padding: 5px 3px;
+  }
+
+  .form-group input {
+    padding: 7px;
+    font-size: 0.85rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .button button {
+    padding: 9px 15px;
+    font-size: 0.9rem;
+  }
+
+  .linijaa {
+    padding: 6px 4px;
+    font-size: 0.65rem;
+    min-height: 28px;
   }
 }
