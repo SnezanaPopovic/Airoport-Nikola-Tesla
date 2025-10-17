@@ -255,10 +255,6 @@ input::placeholder {
     width: 100%;
     justify-content: center;
   }
-  .btn {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 @media (max-width: 768px) {
@@ -273,21 +269,19 @@ input::placeholder {
     margin: 8px 12px;
     font-size: 0.95rem;
   }
-  main {
-    padding: 30px 20px;
-  }
   .login-container {
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
     max-width: 530px;
-    padding: 20px;
+    padding: 15px;
+    margin-top: 30px;
   }
   input {
     width: 100%;
   }
   .btn {
     width: 110px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .linijaa {
     font-size: 0.8rem;
@@ -317,12 +311,12 @@ input::placeholder {
   .flags img {
     width: 32px;
   }
-  main {
-    padding: 20px 15px;
-  }
   .login-container {
+    margin-left: auto;
+    margin-right: auto;
     width: 95%;
     padding: 12px;
+    margin-top: 20px;
   }
   input {
     width: 100%;
