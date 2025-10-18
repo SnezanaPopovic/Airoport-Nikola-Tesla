@@ -467,3 +467,80 @@ tbody tr:hover {
     padding: 5px;
   }
 }
+/* === Stilovi za JS kontrole === */
+.flights-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-row,
+.action-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.flights-input,
+.flights-select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  flex: 1 1 180px;
+}
+
+.flights-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.flights-btn:hover {
+  background-color: #555;
+}
+
+.flights-message {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+  .flights-controls {
+    gap: 8px;
+  }
+
+  .filter-row,
+  .action-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .flights-input,
+  .flights-select {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .flights-btn {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .flights-message {
+    font-size: 12px;
+  }
+}
