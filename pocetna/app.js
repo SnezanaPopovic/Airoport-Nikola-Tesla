@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const viseLotovaLink = document.querySelector(
+    '.more a[href="../letovi/indexLETOVI.html"]'
+  );
+
+  if (viseLotovaLink) {
+    viseLotovaLink.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      localStorage.setItem("redirectAfterLogin", "../letovi/indexLETOVI.html");
+
+      window.location.href = "../prijaviSe/index.html";
+    });
+  }
+
+  // REZERVACIJA KARTE - VALIDACIJA FORME
   const rezervisiBtn = document.querySelector(".button button");
 
   if (rezervisiBtn) {

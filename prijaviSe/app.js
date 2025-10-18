@@ -1,4 +1,3 @@
-// TOGGLE PASSWORD VISIBILITY
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 
@@ -14,7 +13,6 @@ if (togglePassword) {
   });
 }
 
-// FORGOT PASSWORD LINK
 const forgotPassword = document.getElementById("forgotPassword");
 
 if (forgotPassword) {
@@ -29,8 +27,10 @@ if (forgotPassword) {
   });
 }
 
-// VALIDACIJA LOGIN FORME SA PREVODIMA
 const loginBtn = document.getElementById("btnSubmit");
+
+const VALID_EMAIL = "snezana@gmail.com";
+const VALID_PASSWORD = "snezana12";
 
 // Error poruke za login formu
 const loginErrorMessages = {
@@ -39,6 +39,7 @@ const loginErrorMessages = {
     emailFormat: "Unesite ispravan email format.",
     lozinkaObavezna: "Lozinka je obavezna.",
     lozinkaKratka: "Lozinka mora imati najmanje 6 karaktera.",
+    neispravniPodaci: "Neispravan email ili lozinka.",
     uspeh: "Uspešno ste se prijavili!",
   },
   en: {
@@ -46,6 +47,7 @@ const loginErrorMessages = {
     emailFormat: "Enter a valid email format.",
     lozinkaObavezna: "Password is required.",
     lozinkaKratka: "Password must have at least 6 characters.",
+    neispravniPodaci: "Invalid email or password.",
     uspeh: "Successfully signed in!",
   },
 };
@@ -87,23 +89,36 @@ if (loginBtn) {
     }
 
     if (!hasError) {
-      alert(errors.uspeh);
+      const enteredEmail = emailInput.value.trim();
+      const enteredPassword = passwordInput.value.trim();
 
-      //Cuvanje podataka u localStorage
-      localStorage.setItem("userEmail", emailInput.value.trim());
-      localStorage.setItem("userPassword", passwordInput.value.trim());
-      localStorage.setItem("isLoggedIn", "true");
+      // Provera da li se podaci poklapaju
+      if (enteredEmail === VALID_EMAIL && enteredPassword === VALID_PASSWORD) {
+        localStorage.setItem("userEmail", enteredEmail);
+        localStorage.setItem("isLoggedIn", "true");
 
-      // Resetuje celu formu
-      loginForm.reset();
+        loginForm.reset();
 
-      emailError.textContent = "";
-      passwordError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
 
-      passwordInput.setAttribute("type", "password");
-      if (togglePassword) {
-        togglePassword.classList.remove("fa-eye");
-        togglePassword.classList.add("fa-eye-slash");
+        passwordInput.setAttribute("type", "password");
+        if (togglePassword) {
+          togglePassword.classList.remove("fa-eye");
+          togglePassword.classList.add("fa-eye-slash");
+        }
+
+        const redirectPath = localStorage.getItem("redirectAfterLogin");
+
+        if (redirectPath) {
+          localStorage.removeItem("redirectAfterLogin");
+          window.location.href = redirectPath;
+        } else {
+          alert(errors.uspeh);
+          window.location.href = "../pocetna/index.html";
+        }
+      } else {
+        emailError.textContent = errors.neispravniPodaci;
       }
     }
   });
