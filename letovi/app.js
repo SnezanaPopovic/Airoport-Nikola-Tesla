@@ -138,7 +138,7 @@ if (table) {
   `;
 
   const dateControls = document.createElement("div");
-  dateControls.style.cssText = `display: flex; gap: 8px; align-items: center; flex-wrap: wrap;`;
+  dateControls.style.cssText = `display: flex; gap: 6px; align-items: center; flex-wrap: wrap;`;
 
   const dateInput = document.createElement("input");
   dateInput.type = "text";
@@ -166,10 +166,8 @@ if (table) {
   const filterDateBtn = document.createElement("button");
   filterDateBtn.textContent = translations[currentLang].filterDateBtn;
   filterDateBtn.style.cssText = `
-    flex: 1 1 80px;
-    max-width: 100px;
-    min-width: 70px;
-    padding: 6px 10px;
+    flex: 0 0 auto;
+    padding: 8px 14px;
     font-size: 12px;
     background-color: #6c757d;
     color: white;
@@ -208,7 +206,7 @@ if (table) {
   `;
 
   const statusControls = document.createElement("div");
-  statusControls.style.cssText = `display: flex; gap: 8px; align-items: center; flex-wrap: wrap;`;
+  statusControls.style.cssText = `display: flex; gap: 6px; align-items: center; flex-wrap: wrap;`;
 
   const statusSelect = document.createElement("select");
   statusSelect.className = "status-select";
@@ -260,10 +258,8 @@ if (table) {
   const filterStatusBtn = document.createElement("button");
   filterStatusBtn.textContent = translations[currentLang].filterStatusBtn;
   filterStatusBtn.style.cssText = `
-    flex: 1 1 80px;
-    max-width: 100px;
-    min-width: 70px;
-    padding: 6px 10px;
+    flex: 0 0 auto;
+    padding: 8px 14px;
     font-size: 12px;
     background-color: #6c757d;
     color: white;
@@ -293,7 +289,7 @@ if (table) {
   const buttonsWrapper = document.createElement("div");
   buttonsWrapper.style.cssText = `
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 6px;
@@ -302,10 +298,9 @@ if (table) {
   const sortBtn = document.createElement("button");
   sortBtn.textContent = translations[currentLang].sortBtn;
   sortBtn.style.cssText = `
-    flex: 1 1 100px;
-    min-width: 80px;
-    max-width: 120px;
-    padding: 6px 10px;
+    flex: 1 1 85px;
+    min-width: 75px;
+    padding: 8px 14px;
     background-color: #495057;
     color: white;
     border: none;
@@ -322,10 +317,9 @@ if (table) {
   const resetBtn = document.createElement("button");
   resetBtn.textContent = translations[currentLang].resetBtn;
   resetBtn.style.cssText = `
-    flex: 1 1 100px;
-    min-width: 80px;
-    max-width: 120px;
-    padding: 6px 10px;
+    flex: 1 1 85px;
+    min-width: 75px;
+    padding: 8px 14px;
     background-color: #6c757d;
     color: white;
     border: none;
