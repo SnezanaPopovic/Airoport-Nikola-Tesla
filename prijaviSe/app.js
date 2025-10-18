@@ -40,7 +40,6 @@ const loginErrorMessages = {
     lozinkaObavezna: "Lozinka je obavezna.",
     lozinkaKratka: "Lozinka mora imati najmanje 6 karaktera.",
     neispravniPodaci: "Neispravan email ili lozinka.",
-    uspeh: "Uspešno ste se prijavili!",
   },
   en: {
     emailObavezan: "Email is required.",
@@ -48,7 +47,6 @@ const loginErrorMessages = {
     lozinkaObavezna: "Password is required.",
     lozinkaKratka: "Password must have at least 6 characters.",
     neispravniPodaci: "Invalid email or password.",
-    uspeh: "Successfully signed in!",
   },
 };
 
@@ -114,8 +112,8 @@ if (loginBtn) {
           localStorage.removeItem("redirectAfterLogin");
           window.location.href = redirectPath;
         } else {
-          alert(errors.uspeh);
-          window.location.href = "../pocetna/index.html";
+          // Direktno prebacivanje na stranicu letova
+          window.location.href = "../letovi/indexLETOVI.html";
         }
       } else {
         emailError.textContent = errors.neispravniPodaci;
