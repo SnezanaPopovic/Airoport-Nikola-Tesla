@@ -107,22 +107,22 @@ if (table) {
     border: 1px solid #e8e8e8;
   `;
 
-  // GLAVNI GRID
+  // GLAVNI GRID - 2 kolone, responsive
   const mainGrid = document.createElement("div");
   mainGrid.className = "main-grid";
   mainGrid.style.cssText = `
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
     align-items: start;
   `;
 
-  // FILTERI LEVI
+  // FILTERI WRAPPER
   const filtersWrapper = document.createElement("div");
   filtersWrapper.className = "filters-wrapper";
-  filtersWrapper.style.cssText = `display: flex; flex-direction: column; gap: 10px;`;
+  filtersWrapper.style.cssText = `display: flex; flex-direction: column; gap: 12px;`;
 
-  // Datum
+  // DATE SECTION
   const dateSection = document.createElement("div");
   dateSection.className = "date-section";
   dateSection.style.cssText = `display: flex; flex-direction: column; gap: 6px;`;
@@ -138,13 +138,11 @@ if (table) {
   `;
 
   const dateControls = document.createElement("div");
-  dateControls.className = "date-controls";
-  dateControls.style.cssText = `display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;`;
+  dateControls.style.cssText = `display: flex; gap: 8px; align-items: center; flex-wrap: wrap;`;
 
   const dateInput = document.createElement("input");
   dateInput.type = "text";
   dateInput.placeholder = translations[currentLang].placeholder;
-  dateInput.className = "date-input";
   dateInput.style.cssText = `
     flex: 1 1 120px;
     max-width: 180px;
@@ -152,9 +150,9 @@ if (table) {
     border: 1px solid #d8d8d8;
     border-radius: 4px;
     font-size: 13px;
-    transition: all 0.2s ease;
-    outline: none;
     background-color: #fafafa;
+    outline: none;
+    transition: all 0.2s ease;
   `;
   dateInput.addEventListener("focus", () => {
     dateInput.style.borderColor = "#999";
@@ -167,18 +165,18 @@ if (table) {
 
   const filterDateBtn = document.createElement("button");
   filterDateBtn.textContent = translations[currentLang].filterDateBtn;
-  filterDateBtn.className = "filter-date-btn";
   filterDateBtn.style.cssText = `
+    flex: 1 1 80px;
+    max-width: 100px;
+    min-width: 70px;
     padding: 6px 10px;
+    font-size: 12px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
-    flex: 1 1 80px;
-    min-width: 70px;
-    max-width: 100px;
+    transition: filter 0.2s;
   `;
   filterDateBtn.addEventListener(
     "mouseenter",
@@ -194,7 +192,7 @@ if (table) {
   dateSection.appendChild(dateSectionTitle);
   dateSection.appendChild(dateControls);
 
-  // Status
+  // STATUS SECTION
   const statusSection = document.createElement("div");
   statusSection.className = "status-section";
   statusSection.style.cssText = `display: flex; flex-direction: column; gap: 6px;`;
@@ -210,8 +208,7 @@ if (table) {
   `;
 
   const statusControls = document.createElement("div");
-  statusControls.className = "status-controls";
-  statusControls.style.cssText = `display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;`;
+  statusControls.style.cssText = `display: flex; gap: 8px; align-items: center; flex-wrap: wrap;`;
 
   const statusSelect = document.createElement("select");
   statusSelect.className = "status-select";
@@ -262,18 +259,18 @@ if (table) {
 
   const filterStatusBtn = document.createElement("button");
   filterStatusBtn.textContent = translations[currentLang].filterStatusBtn;
-  filterStatusBtn.className = "filter-status-btn";
   filterStatusBtn.style.cssText = `
+    flex: 1 1 80px;
+    max-width: 100px;
+    min-width: 70px;
     padding: 6px 10px;
+    font-size: 12px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
-    flex: 1 1 80px;
-    min-width: 70px;
-    max-width: 100px;
+    transition: filter 0.2s;
   `;
   filterStatusBtn.addEventListener(
     "mouseenter",
@@ -292,7 +289,7 @@ if (table) {
   filtersWrapper.appendChild(dateSection);
   filtersWrapper.appendChild(statusSection);
 
-  // --- DUGMAD SORT/RESET ---
+  // SORT / RESET dugmad
   const buttonsWrapper = document.createElement("div");
   buttonsWrapper.style.cssText = `
     display: flex;
@@ -304,8 +301,10 @@ if (table) {
 
   const sortBtn = document.createElement("button");
   sortBtn.textContent = translations[currentLang].sortBtn;
-  sortBtn.className = "sort-btn";
   sortBtn.style.cssText = `
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 120px;
     padding: 6px 10px;
     background-color: #495057;
     color: white;
@@ -313,9 +312,6 @@ if (table) {
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    flex: 1 1 100px;
-    min-width: 80px;
-    max-width: 120px;
   `;
   sortBtn.addEventListener(
     "mouseenter",
@@ -325,8 +321,10 @@ if (table) {
 
   const resetBtn = document.createElement("button");
   resetBtn.textContent = translations[currentLang].resetBtn;
-  resetBtn.className = "reset-btn";
   resetBtn.style.cssText = `
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 120px;
     padding: 6px 10px;
     background-color: #6c757d;
     color: white;
@@ -334,9 +332,6 @@ if (table) {
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    flex: 1 1 100px;
-    min-width: 80px;
-    max-width: 120px;
   `;
   resetBtn.addEventListener(
     "mouseenter",
@@ -380,25 +375,14 @@ if (table) {
 
   // --- Funkcije filtriranja i sortiranja ---
   const toggleTableVisibility = (show) => {
-    if (show) {
-      table.style.display = "table";
-      tablePlaceholder.style.display = "none";
-    } else {
-      table.style.display = "none";
-      tablePlaceholder.style.display = "block";
-    }
+    table.style.display = show ? "table" : "none";
+    tablePlaceholder.style.display = show ? "none" : "block";
   };
 
   const filterByDate = () => {
     const inputDate = dateInput.value.trim();
-    if (!inputDate) {
-      messageDiv.textContent = translations[currentLang].invalidDate;
-      messageDiv.style.backgroundColor = "#fff3cd";
-      messageDiv.style.color = "#856404";
-      return;
-    }
     const dateRegex = /^\d{1,2}\.\d{1,2}\.\d{4}$/;
-    if (!dateRegex.test(inputDate)) {
+    if (!inputDate || !dateRegex.test(inputDate)) {
       messageDiv.textContent = translations[currentLang].invalidDate;
       messageDiv.style.backgroundColor = "#fff3cd";
       messageDiv.style.color = "#856404";
@@ -408,7 +392,7 @@ if (table) {
       (row) => row.cells[4].textContent.trim() === inputDate
     );
     tbody.innerHTML = "";
-    if (filteredRows.length === 0) {
+    if (!filteredRows.length) {
       toggleTableVisibility(false);
       messageDiv.textContent = translations[currentLang].noFlightsDate;
       messageDiv.style.backgroundColor = "#f8d7da";
@@ -442,7 +426,7 @@ if (table) {
       );
     });
     tbody.innerHTML = "";
-    if (filteredRows.length === 0) {
+    if (!filteredRows.length) {
       toggleTableVisibility(false);
       messageDiv.textContent = translations[currentLang].noFlightsStatus;
       messageDiv.style.backgroundColor = "#f8d7da";
@@ -464,7 +448,7 @@ if (table) {
 
   sortBtn.addEventListener("click", () => {
     const currentRows = Array.from(tbody.querySelectorAll("tr"));
-    if (currentRows.length === 0) {
+    if (!currentRows.length) {
       messageDiv.textContent = translations[currentLang].noFlightsSort;
       messageDiv.style.backgroundColor = "#fff3cd";
       messageDiv.style.color = "#856404";
