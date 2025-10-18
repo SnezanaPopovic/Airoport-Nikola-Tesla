@@ -1,9 +1,8 @@
-//Scroll to top dugme
+// Scroll to top dugme
 const scrollBtn = document.createElement("button");
 scrollBtn.innerHTML = "⬆";
 scrollBtn.classList.add("scroll-top-btn");
 document.body.appendChild(scrollBtn);
-
 scrollBtn.style.display = "none";
 
 window.addEventListener("scroll", () => {
@@ -14,13 +13,11 @@ scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-//Form validacija (bez localStorage)
+// Form validacija
 const form = document.querySelector("form");
-
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const ime = document.getElementById("ime").value.trim();
     const prezime = document.getElementById("prezime").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -44,11 +41,9 @@ if (form) {
 
 // Sortiranje i filtriranje letova
 const table = document.querySelector("table");
-
 if (table) {
   const container = document.querySelector(".container");
   const tbody = table.querySelector("tbody");
-
   const allRows = Array.from(tbody.querySelectorAll("tr"));
 
   const translations = {
@@ -112,7 +107,7 @@ if (table) {
     border: 1px solid #e8e8e8;
   `;
 
-  // GLAVNI GRID LAYOUT
+  // GLAVNI GRID
   const mainGrid = document.createElement("div");
   mainGrid.className = "main-grid";
   mainGrid.style.cssText = `
@@ -122,23 +117,15 @@ if (table) {
     align-items: start;
   `;
 
-  // LEVA STRANA - Filteri
+  // FILTERI LEVI
   const filtersWrapper = document.createElement("div");
   filtersWrapper.className = "filters-wrapper";
-  filtersWrapper.style.cssText = `
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  `;
+  filtersWrapper.style.cssText = `display: flex; flex-direction: column; gap: 10px;`;
 
-  // SEKCIJA 1: Datum
+  // Datum
   const dateSection = document.createElement("div");
   dateSection.className = "date-section";
-  dateSection.style.cssText = `
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  `;
+  dateSection.style.cssText = `display: flex; flex-direction: column; gap: 6px;`;
 
   const dateSectionTitle = document.createElement("div");
   dateSectionTitle.textContent = translations[currentLang].dateLabel;
@@ -152,19 +139,14 @@ if (table) {
 
   const dateControls = document.createElement("div");
   dateControls.className = "date-controls";
-  dateControls.style.cssText = `
-    display: flex;
-    gap: 8px;
-    align-items: stretch;
-  `;
+  dateControls.style.cssText = `display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;`;
 
-  // Input polje za datum
   const dateInput = document.createElement("input");
   dateInput.type = "text";
   dateInput.placeholder = translations[currentLang].placeholder;
   dateInput.className = "date-input";
   dateInput.style.cssText = `
-    flex: 1;
+    flex: 1 1 120px;
     max-width: 180px;
     padding: 8px 10px;
     border: 1px solid #d8d8d8;
@@ -174,55 +156,48 @@ if (table) {
     outline: none;
     background-color: #fafafa;
   `;
-
   dateInput.addEventListener("focus", () => {
     dateInput.style.borderColor = "#999";
     dateInput.style.backgroundColor = "#fff";
   });
-
   dateInput.addEventListener("blur", () => {
     dateInput.style.borderColor = "#d8d8d8";
     dateInput.style.backgroundColor = "#fafafa";
   });
 
-  // Dugme za filtriranje po datumu
   const filterDateBtn = document.createElement("button");
   filterDateBtn.textContent = translations[currentLang].filterDateBtn;
   filterDateBtn.className = "filter-date-btn";
   filterDateBtn.style.cssText = `
-    padding: 8px 16px;
+    padding: 6px 10px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    flex: 1 1 80px;
+    min-width: 70px;
+    max-width: 100px;
   `;
-
-  filterDateBtn.addEventListener("mouseenter", () => {
-    filterDateBtn.style.backgroundColor = "#5a6268";
-  });
-
-  filterDateBtn.addEventListener("mouseleave", () => {
-    filterDateBtn.style.backgroundColor = "#6c757d";
-  });
+  filterDateBtn.addEventListener(
+    "mouseenter",
+    () => (filterDateBtn.style.filter = "brightness(0.9)")
+  );
+  filterDateBtn.addEventListener(
+    "mouseleave",
+    () => (filterDateBtn.style.filter = "none")
+  );
 
   dateControls.appendChild(dateInput);
   dateControls.appendChild(filterDateBtn);
   dateSection.appendChild(dateSectionTitle);
   dateSection.appendChild(dateControls);
 
-  // SEKCIJA 2: Status dropdown
+  // Status
   const statusSection = document.createElement("div");
   statusSection.className = "status-section";
-  statusSection.style.cssText = `
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  `;
+  statusSection.style.cssText = `display: flex; flex-direction: column; gap: 6px;`;
 
   const statusSectionTitle = document.createElement("div");
   statusSectionTitle.textContent = translations[currentLang].statusLabel;
@@ -236,17 +211,12 @@ if (table) {
 
   const statusControls = document.createElement("div");
   statusControls.className = "status-controls";
-  statusControls.style.cssText = `
-    display: flex;
-    gap: 8px;
-    align-items: stretch;
-  `;
+  statusControls.style.cssText = `display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;`;
 
-  // Select dropdown za status
   const statusSelect = document.createElement("select");
   statusSelect.className = "status-select";
   statusSelect.style.cssText = `
-    flex: 1;
+    flex: 1 1 120px;
     max-width: 180px;
     padding: 8px 10px;
     border: 1px solid #d8d8d8;
@@ -262,12 +232,10 @@ if (table) {
     background-position: right 10px center;
     padding-right: 32px;
   `;
-
   statusSelect.addEventListener("focus", () => {
     statusSelect.style.borderColor = "#999";
     statusSelect.style.backgroundColor = "#fff";
   });
-
   statusSelect.addEventListener("blur", () => {
     statusSelect.style.borderColor = "#d8d8d8";
     statusSelect.style.backgroundColor = "#fafafa";
@@ -279,7 +247,6 @@ if (table) {
     option.textContent = text;
     return option;
   };
-
   statusSelect.appendChild(
     createOption("", translations[currentLang].selectPlaceholder)
   );
@@ -293,111 +260,101 @@ if (table) {
     createOption("cancelled", translations[currentLang].cancelledOption)
   );
 
-  // Dugme za filtriranje po statusu
   const filterStatusBtn = document.createElement("button");
   filterStatusBtn.textContent = translations[currentLang].filterStatusBtn;
   filterStatusBtn.className = "filter-status-btn";
   filterStatusBtn.style.cssText = `
-    padding: 8px 16px;
+    padding: 6px 10px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    flex: 1 1 80px;
+    min-width: 70px;
+    max-width: 100px;
   `;
-
-  filterStatusBtn.addEventListener("mouseenter", () => {
-    filterStatusBtn.style.backgroundColor = "#5a6268";
-  });
-
-  filterStatusBtn.addEventListener("mouseleave", () => {
-    filterStatusBtn.style.backgroundColor = "#6c757d";
-  });
+  filterStatusBtn.addEventListener(
+    "mouseenter",
+    () => (filterStatusBtn.style.filter = "brightness(0.9)")
+  );
+  filterStatusBtn.addEventListener(
+    "mouseleave",
+    () => (filterStatusBtn.style.filter = "none")
+  );
 
   statusControls.appendChild(statusSelect);
   statusControls.appendChild(filterStatusBtn);
   statusSection.appendChild(statusSectionTitle);
   statusSection.appendChild(statusControls);
 
-  // Dodavanje obe sekcije u filters wrapper
   filtersWrapper.appendChild(dateSection);
   filtersWrapper.appendChild(statusSection);
 
-  const actionSection = document.createElement("div");
-  actionSection.className = "action-section";
-  actionSection.style.cssText = `
+  // --- DUGMAD SORT/RESET ---
+  const buttonsWrapper = document.createElement("div");
+  buttonsWrapper.style.cssText = `
     display: flex;
-    flex-direction: column;
     gap: 8px;
-    padding-top: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 6px;
   `;
 
-  // Dugme za sortiranje
   const sortBtn = document.createElement("button");
   sortBtn.textContent = translations[currentLang].sortBtn;
   sortBtn.className = "sort-btn";
   sortBtn.style.cssText = `
-    padding: 8px 18px;
+    padding: 6px 10px;
     background-color: #495057;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    width: 110px;
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 120px;
   `;
+  sortBtn.addEventListener(
+    "mouseenter",
+    () => (sortBtn.style.filter = "brightness(0.9)")
+  );
+  sortBtn.addEventListener("mouseleave", () => (sortBtn.style.filter = "none"));
 
-  sortBtn.addEventListener("mouseenter", () => {
-    sortBtn.style.backgroundColor = "#383d41";
-  });
-
-  sortBtn.addEventListener("mouseleave", () => {
-    sortBtn.style.backgroundColor = "#495057";
-  });
-
-  // Reset dugme
   const resetBtn = document.createElement("button");
   resetBtn.textContent = translations[currentLang].resetBtn;
   resetBtn.className = "reset-btn";
   resetBtn.style.cssText = `
-    padding: 8px 18px;
+    padding: 6px 10px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    width: 110px;
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 120px;
   `;
+  resetBtn.addEventListener(
+    "mouseenter",
+    () => (resetBtn.style.filter = "brightness(0.9)")
+  );
+  resetBtn.addEventListener(
+    "mouseleave",
+    () => (resetBtn.style.filter = "none")
+  );
 
-  resetBtn.addEventListener("mouseenter", () => {
-    resetBtn.style.backgroundColor = "#5a6268";
-  });
+  buttonsWrapper.appendChild(sortBtn);
+  buttonsWrapper.appendChild(resetBtn);
+  filtersWrapper.appendChild(buttonsWrapper);
 
-  resetBtn.addEventListener("mouseleave", () => {
-    resetBtn.style.backgroundColor = "#6c757d";
-  });
-
-  actionSection.appendChild(sortBtn);
-  actionSection.appendChild(resetBtn);
-
-  // Sastavljanje glavnog grida
   mainGrid.appendChild(filtersWrapper);
-  mainGrid.appendChild(actionSection);
-
   controlsWrapper.appendChild(mainGrid);
 
-  // Poruka
+  // Poruka i placeholder
   const messageDiv = document.createElement("div");
   messageDiv.className = "flights-message";
   messageDiv.style.cssText = `
@@ -411,13 +368,8 @@ if (table) {
     transition: all 0.3s ease;
     max-width: 1200px;
   `;
-
   const tablePlaceholder = document.createElement("div");
-  tablePlaceholder.style.cssText = `
-    min-height: 400px;
-    display: none;
-  `;
-
+  tablePlaceholder.style.cssText = `min-height: 400px; display: none;`;
   if (container) {
     container.insertBefore(controlsWrapper, table);
     container.insertBefore(messageDiv, table);
@@ -426,194 +378,7 @@ if (table) {
 
   let sortAscending = true;
 
-  // Funkcija za azuriranje jezika
-  const updateLanguage = (lang) => {
-    currentLang = lang;
-    dateSectionTitle.textContent = translations[lang].dateLabel;
-    statusSectionTitle.textContent = translations[lang].statusLabel;
-    sortBtn.textContent = translations[lang].sortBtn;
-    resetBtn.textContent = translations[lang].resetBtn;
-    filterDateBtn.textContent = translations[lang].filterDateBtn;
-    filterStatusBtn.textContent = translations[lang].filterStatusBtn;
-    dateInput.placeholder = translations[lang].placeholder;
-
-    statusSelect.options[0].text = translations[lang].selectPlaceholder;
-    statusSelect.options[1].text = translations[lang].onTimeOption;
-    statusSelect.options[2].text = translations[lang].delayedOption;
-    statusSelect.options[3].text = translations[lang].cancelledOption;
-  };
-
-  const flagSr = document.getElementById("flag-sr");
-  const flagEn = document.getElementById("flag-en");
-
-  if (flagSr) {
-    flagSr.addEventListener("click", () => updateLanguage("sr"));
-  }
-
-  if (flagEn) {
-    flagEn.addEventListener("click", () => updateLanguage("en"));
-  }
-
-  // RESPONSIVE STILOVI
-  const applyResponsiveStyles = () => {
-    const width = window.innerWidth;
-
-    if (width <= 480) {
-      controlsWrapper.style.padding = "10px 12px";
-      controlsWrapper.style.margin = "10px auto 8px";
-
-      mainGrid.style.gridTemplateColumns = "1fr";
-      mainGrid.style.gap = "10px";
-
-      filtersWrapper.style.gap = "8px";
-      dateSection.style.gap = "5px";
-      statusSection.style.gap = "5px";
-
-      dateSectionTitle.style.fontSize = "10px";
-      statusSectionTitle.style.fontSize = "10px";
-
-      dateControls.style.gap = "6px";
-      dateControls.style.flexWrap = "wrap";
-      statusControls.style.gap = "6px";
-      statusControls.style.flexWrap = "wrap";
-
-      actionSection.style.flexDirection = "row";
-      actionSection.style.gap = "6px";
-      actionSection.style.paddingTop = "0";
-      actionSection.style.justifyContent = "center";
-
-      dateInput.style.fontSize = "12px";
-      dateInput.style.padding = "7px 9px";
-      dateInput.style.maxWidth = "100%";
-      dateInput.style.width = "100%";
-
-      statusSelect.style.fontSize = "12px";
-      statusSelect.style.padding = "7px 9px";
-      statusSelect.style.paddingRight = "30px";
-      statusSelect.style.maxWidth = "100%";
-      statusSelect.style.width = "100%";
-      statusSelect.style.backgroundPosition = "right 9px center";
-
-      [filterDateBtn, filterStatusBtn].forEach((btn) => {
-        btn.style.fontSize = "11px";
-        btn.style.padding = "7px 14px";
-        btn.style.width = "100%";
-      });
-
-      [sortBtn, resetBtn].forEach((btn) => {
-        btn.style.fontSize = "11px";
-        btn.style.padding = "7px 14px";
-        btn.style.width = "calc(50% - 3px)";
-      });
-
-      messageDiv.style.fontSize = "11px";
-      messageDiv.style.padding = "5px";
-    } else if (width <= 768) {
-      controlsWrapper.style.padding = "12px 14px";
-      controlsWrapper.style.margin = "12px auto 10px";
-
-      mainGrid.style.gridTemplateColumns = "1fr auto";
-      mainGrid.style.gap = "10px";
-
-      filtersWrapper.style.gap = "9px";
-      dateSection.style.gap = "5px";
-      statusSection.style.gap = "5px";
-
-      dateSectionTitle.style.fontSize = "10px";
-      statusSectionTitle.style.fontSize = "10px";
-
-      dateControls.style.gap = "7px";
-      dateControls.style.flexWrap = "nowrap";
-      statusControls.style.gap = "7px";
-      statusControls.style.flexWrap = "nowrap";
-
-      actionSection.style.flexDirection = "column";
-      actionSection.style.gap = "7px";
-      actionSection.style.paddingTop = "18px";
-      actionSection.style.justifyContent = "flex-start";
-
-      dateInput.style.fontSize = "12px";
-      dateInput.style.padding = "7px 9px";
-      dateInput.style.maxWidth = "160px";
-      dateInput.style.width = "auto";
-
-      statusSelect.style.fontSize = "12px";
-      statusSelect.style.padding = "7px 9px";
-      statusSelect.style.paddingRight = "30px";
-      statusSelect.style.maxWidth = "160px";
-      statusSelect.style.width = "auto";
-      statusSelect.style.backgroundPosition = "right 9px center";
-
-      [filterDateBtn, filterStatusBtn].forEach((btn) => {
-        btn.style.fontSize = "12px";
-        btn.style.padding = "7px 14px";
-        btn.style.width = "auto";
-      });
-
-      [sortBtn, resetBtn].forEach((btn) => {
-        btn.style.fontSize = "12px";
-        btn.style.padding = "7px 16px";
-        btn.style.width = "110px";
-      });
-
-      messageDiv.style.fontSize = "11px";
-      messageDiv.style.padding = "5px";
-    } else {
-      controlsWrapper.style.padding = "14px 16px";
-      controlsWrapper.style.margin = "15px auto 12px";
-
-      mainGrid.style.gridTemplateColumns = "1fr auto";
-      mainGrid.style.gap = "12px";
-
-      filtersWrapper.style.gap = "10px";
-      dateSection.style.gap = "6px";
-      statusSection.style.gap = "6px";
-
-      dateSectionTitle.style.fontSize = "11px";
-      statusSectionTitle.style.fontSize = "11px";
-
-      dateControls.style.gap = "8px";
-      dateControls.style.flexWrap = "nowrap";
-      statusControls.style.gap = "8px";
-      statusControls.style.flexWrap = "nowrap";
-
-      actionSection.style.flexDirection = "column";
-      actionSection.style.gap = "8px";
-      actionSection.style.paddingTop = "18px";
-      actionSection.style.justifyContent = "flex-start";
-
-      dateInput.style.fontSize = "13px";
-      dateInput.style.padding = "8px 10px";
-      dateInput.style.maxWidth = "180px";
-      dateInput.style.width = "auto";
-
-      statusSelect.style.fontSize = "13px";
-      statusSelect.style.padding = "8px 10px";
-      statusSelect.style.paddingRight = "32px";
-      statusSelect.style.maxWidth = "180px";
-      statusSelect.style.width = "auto";
-      statusSelect.style.backgroundPosition = "right 10px center";
-
-      [filterDateBtn, filterStatusBtn].forEach((btn) => {
-        btn.style.fontSize = "12px";
-        btn.style.padding = "8px 16px";
-        btn.style.width = "auto";
-      });
-
-      [sortBtn, resetBtn].forEach((btn) => {
-        btn.style.fontSize = "12px";
-        btn.style.padding = "8px 18px";
-        btn.style.width = "110px";
-      });
-
-      messageDiv.style.fontSize = "12px";
-      messageDiv.style.padding = "6px";
-    }
-  };
-
-  applyResponsiveStyles();
-  window.addEventListener("resize", applyResponsiveStyles);
-
+  // --- Funkcije filtriranja i sortiranja ---
   const toggleTableVisibility = (show) => {
     if (show) {
       table.style.display = "table";
@@ -624,17 +389,14 @@ if (table) {
     }
   };
 
-  // Funkcija za filtriranje po datumu
   const filterByDate = () => {
     const inputDate = dateInput.value.trim();
-
     if (!inputDate) {
       messageDiv.textContent = translations[currentLang].invalidDate;
       messageDiv.style.backgroundColor = "#fff3cd";
       messageDiv.style.color = "#856404";
       return;
     }
-
     const dateRegex = /^\d{1,2}\.\d{1,2}\.\d{4}$/;
     if (!dateRegex.test(inputDate)) {
       messageDiv.textContent = translations[currentLang].invalidDate;
@@ -642,16 +404,10 @@ if (table) {
       messageDiv.style.color = "#856404";
       return;
     }
-
-    const filteredRows = allRows.filter((row) => {
-      const rowDate = row.cells[4].textContent.trim();
-      return rowDate === inputDate;
-    });
-
-    Array.from(tbody.querySelectorAll("tr")).forEach((row) =>
-      tbody.removeChild(row)
+    const filteredRows = allRows.filter(
+      (row) => row.cells[4].textContent.trim() === inputDate
     );
-
+    tbody.innerHTML = "";
     if (filteredRows.length === 0) {
       toggleTableVisibility(false);
       messageDiv.textContent = translations[currentLang].noFlightsDate;
@@ -666,34 +422,26 @@ if (table) {
     }
   };
 
-  // Funkcija za filtriranje po statusu
   const filterByStatus = () => {
     const selectedStatus = statusSelect.value;
-
     if (!selectedStatus) {
       messageDiv.textContent = translations[currentLang].noFlightsStatus;
       messageDiv.style.backgroundColor = "#fff3cd";
       messageDiv.style.color = "#856404";
       return;
     }
-
     const statusKeywords = {
       ontime: ["na vreme", "on time"],
       delayed: ["kasni", "delayed"],
       cancelled: ["otkazan", "cancelled"],
     };
-
     const filteredRows = allRows.filter((row) => {
       const status = row.cells[3].textContent.trim().toLowerCase();
       return statusKeywords[selectedStatus].some((keyword) =>
         status.includes(keyword)
       );
     });
-
-    Array.from(tbody.querySelectorAll("tr")).forEach((row) =>
-      tbody.removeChild(row)
-    );
-
+    tbody.innerHTML = "";
     if (filteredRows.length === 0) {
       toggleTableVisibility(false);
       messageDiv.textContent = translations[currentLang].noFlightsStatus;
@@ -710,71 +458,72 @@ if (table) {
 
   filterDateBtn.addEventListener("click", filterByDate);
   filterStatusBtn.addEventListener("click", filterByStatus);
-
   dateInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      filterByDate();
-    }
+    if (e.key === "Enter") filterByDate();
   });
 
-  // Sortiranje po datumu
   sortBtn.addEventListener("click", () => {
     const currentRows = Array.from(tbody.querySelectorAll("tr"));
-
     if (currentRows.length === 0) {
       messageDiv.textContent = translations[currentLang].noFlightsSort;
       messageDiv.style.backgroundColor = "#fff3cd";
       messageDiv.style.color = "#856404";
       return;
     }
-
     currentRows.sort((a, b) => {
-      const dateA = a.cells[4].textContent.trim();
-      const dateB = b.cells[4].textContent.trim();
-
-      const parseDate = (dateStr) => {
-        const [day, month, year] = dateStr.split(".");
-        return new Date(year, month - 1, day);
+      const parseDate = (str) => {
+        const [d, m, y] = str.split(".");
+        return new Date(y, m - 1, d);
       };
-
-      const d1 = parseDate(dateA);
-      const d2 = parseDate(dateB);
-
+      const d1 = parseDate(a.cells[4].textContent.trim());
+      const d2 = parseDate(b.cells[4].textContent.trim());
       return sortAscending ? d1 - d2 : d2 - d1;
     });
-
-    currentRows.forEach((row) => tbody.removeChild(row));
+    tbody.innerHTML = "";
     currentRows.forEach((row) => tbody.appendChild(row));
-
     sortAscending = !sortAscending;
-
     messageDiv.textContent = translations[currentLang].sortSuccess;
     messageDiv.style.backgroundColor = "#d4edda";
     messageDiv.style.color = "#155724";
-
     setTimeout(() => {
       messageDiv.textContent = "";
       messageDiv.style.backgroundColor = "transparent";
     }, 2500);
   });
 
-  // Reset
   resetBtn.addEventListener("click", () => {
     toggleTableVisibility(true);
-    Array.from(tbody.querySelectorAll("tr")).forEach((row) =>
-      tbody.removeChild(row)
-    );
+    tbody.innerHTML = "";
     allRows.forEach((row) => tbody.appendChild(row));
     dateInput.value = "";
     statusSelect.value = "";
+    sortAscending = true;
     messageDiv.textContent = translations[currentLang].allFlightsShown;
     messageDiv.style.backgroundColor = "#d1ecf1";
     messageDiv.style.color = "#0c5460";
-    sortAscending = true;
-
     setTimeout(() => {
       messageDiv.textContent = "";
       messageDiv.style.backgroundColor = "transparent";
     }, 2500);
   });
+
+  // Jezik
+  const updateLanguage = (lang) => {
+    currentLang = lang;
+    dateSectionTitle.textContent = translations[lang].dateLabel;
+    statusSectionTitle.textContent = translations[lang].statusLabel;
+    sortBtn.textContent = translations[lang].sortBtn;
+    resetBtn.textContent = translations[lang].resetBtn;
+    filterDateBtn.textContent = translations[lang].filterDateBtn;
+    filterStatusBtn.textContent = translations[lang].filterStatusBtn;
+    dateInput.placeholder = translations[lang].placeholder;
+    statusSelect.options[0].text = translations[lang].selectPlaceholder;
+    statusSelect.options[1].text = translations[lang].onTimeOption;
+    statusSelect.options[2].text = translations[lang].delayedOption;
+    statusSelect.options[3].text = translations[lang].cancelledOption;
+  };
+  const flagSr = document.getElementById("flag-sr");
+  const flagEn = document.getElementById("flag-en");
+  if (flagSr) flagSr.addEventListener("click", () => updateLanguage("sr"));
+  if (flagEn) flagEn.addEventListener("click", () => updateLanguage("en"));
 }
